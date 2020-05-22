@@ -1,0 +1,23 @@
+<div class="view">
+  <div
+    [@imageTransition]="show ? 'show' : 'hide'"
+    [ngClass]="[imageHeight]">
+    <div class="image-loader">Cargando ....</div>
+    <img src="{{currentPost.url}}" alt="">
+    <div class="loadbar"[ngStyle]="{'width': progress}"></div>
+    <div class="pause" (click)="pause()">
+      <i class="far fa-pause-circle"></i>
+    </div>
+  </div>
+  <div
+    *ngIf="!settings.onlyImage"
+    [@descriptionTransition]="show ? 'show' : 'hide'"
+    [ngClass]="['description']">
+    <h1 class="title">{{currentPost.user}}</h1>
+    <p class="description-content">{{currentPost.caption}}</p>
+    <div *ngIf="!settings.hideRates">
+      <div class="stats">{{currentPost.likes}} Me gusta</div>
+      <div class="stats">{{currentPost.comments}} Comentarios</div>
+    </div>
+  </div>
+</div>

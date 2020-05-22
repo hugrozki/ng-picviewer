@@ -1,0 +1,62 @@
+@import "vars";
+
+.settings {
+  width: 370px;
+
+  .title {
+    margin-top: 0;
+  }
+
+  .inputs {
+    label {
+      display: block;
+      margin: 20px 0;
+    }
+
+    .input {
+      font-size: $font-small;
+      padding: 5px;
+      width: 45px;
+    }
+  }
+
+  .buttons {
+    .btn {
+      background-color: $button-bg;
+      border: none;
+      margin-right: 5px;
+      padding: 6px;
+      width: 100px;
+      font-size: $font-small;
+
+      &.primary {
+        background-color: $link-color;
+        color: $font-color-contrast;
+      }
+
+      &:hover {
+        background-color: $button-bg-hover;
+        color: $font-color-primary;
+      }
+
+      &[disabled] {
+        background: $button-disabled-bg;
+        color: $button-disabled-color;
+
+        &:hover {
+          color: $button-disabled-color;
+        }
+      }
+    }
+  }
+
+  .errors {
+    color: $font-color-error;
+    font-size: $font-small;
+    margin-bottom: 20px;
+  }
+
+  .message {
+    color: $font-color-info;
+  }
+}

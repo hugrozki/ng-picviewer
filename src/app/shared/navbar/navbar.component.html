@@ -1,0 +1,17 @@
+<div class="navbar">
+  <div class="navbar-brand">ngPicViewer</div>
+  <div class="navbar-nav">
+    <div class="nav-item dropdown">
+      <div *ngIf="auth.isAuthenticated else noAuthenticated" class="dropdown-wrapper">
+        <div>@{{auth.username}} <i class="fas fa-caret-down"></i></div>
+        <ul class="dropdown-menu">
+          <li><a class="nav-item" routerLink="/settings">Ajustes</a></li>
+          <li><a class="nav-item" (click)="disconnect()">Desconectar</a></li>
+        </ul>
+      </div>
+    </div>
+    <ng-template #noAuthenticated>
+      <a href="{{authUrl}}?client_id={{clientID}}&redirect_uri={{redirectUrl}}&response_type=token" class="nav-item">Conectar</a>
+    </ng-template>
+  </div>
+</div>

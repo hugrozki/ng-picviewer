@@ -1,0 +1,24 @@
+<div class="content">
+  <div *ngIf="auth.isAuthenticated" class="status">
+    <h1 class="title">Cuenta conectada</h1>
+    <img src="{{auth.avatar}}" class="avatar" />
+    <a
+      *ngIf='showStartPresentation else noPosts'
+      href="#"
+      class="action"
+      (click)="play()">
+      Comenzar presentación
+    </a>
+    <ng-template #noPosts>
+      No se encontraron entradas en esta cuenta.
+    </ng-template>
+  </div>
+
+  <div *ngIf="!auth.isAuthenticated" class="status">
+    <h1 class="title">Sin conexión a una cuenta</h1>
+    <p class="message">No se puede mostrar ninguna imagen porque no hay una cuenta conectada con esta aplicación</p>
+    <a href="{{authUrl}}?client_id={{clientID}}&redirect_uri={{redirectUrl}}&response_type=token" class="action">Conectar con instagram</a>
+    <p *ngIf="message" class="message {{message.type}}">{{message.message}}</p>
+  </div>
+
+</div>

@@ -1,0 +1,53 @@
+<div class="content">
+  <form class="settings" #settingsForm="ngForm">
+    <h1 class="title">Ajustes</h1>
+    <div class="inputs">
+      <label for="only-image">
+        <input
+        [(ngModel)]="settingsFormData.onlyImage"
+          #onlyImage="ngModel"
+          type="checkbox"
+          name="onlyImage"
+          id="only-image">
+        Mostrar solo imagen.
+      </label>
+
+      <label for="hide-stats">
+        <input
+          [(ngModel)]="settingsFormData.hideRates"
+          #hideRates="ngModel"
+          type="checkbox"
+          name="hideRates"
+          id="hide-stats">
+        Ocultar estadísticas.
+      </label>
+
+      <label for="num-images">
+        Mostrar las
+        <input
+          [(ngModel)]="settingsFormData.numImages"
+          #numImages="ngModel"
+          type="number"
+          name="numImages"
+          id="num-images"
+          class="input"
+          required>
+        últimas imágenes.
+      </label>
+      <div *ngIf="numImages.invalid" class="errors">
+        <span *ngIf="numImages.errors?.required">
+          Este valor es requerido.
+        </span>
+      </div>
+
+    </div>
+    <div class="buttons">
+      <button
+        (click)="save(settingsForm)"
+        [disabled]="settingsForm.pristine || settingsForm.invalid"
+        class="btn primary">Aceptar</button>
+      <button class="btn" routerLink="/">Cerrar</button>
+    </div>
+    <p class="message">{{formMessage}}</p>
+  </form>
+</div>

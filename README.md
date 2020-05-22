@@ -1,5 +1,24 @@
 # NgPicviewer
 
+
+Nota: Agregar descripcion
+
+Se debe crear el archivo env.environment.ts en la siguiente ruta:
+
+```
+src/environments
+```
+
+Y agregar los valores:
+
+```
+export const env = {
+  clientID: INSTAGRAM_CLIENT_ID,
+  redirect: REDIRECT_URI
+}
+```
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
 
 ## Development server

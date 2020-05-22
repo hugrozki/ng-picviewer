@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'vars';
+
+html, body {
+  height: 100%;
+  padding: 0;
+}
+
+body {
+  font: 100% $font-family;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-bold;
+}
+
+.content {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -($navbar-heigh);
+}
