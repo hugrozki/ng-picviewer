@@ -5,14 +5,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { ViewerComponent } from './viewer.component';
 import { StatusComponent } from './status/status.component';
 import { ViewComponent } from './view/view.component';
-import { LoaderComponent} from './loader/loader.component';
 import { CommonModule } from '@angular/common';
 import { FeedService } from '../shared/feed.service';
-import { MessageService } from './shared/message.service';
+import { TokenResolver } from './shared/token.resolver';
 
 const routes: Routes = [
-  { path: 'success', component: LoaderComponent },
-  { path: '', component: ViewerComponent }
+  {
+    path: 'success',
+    redirectTo: ''
+  },
+  {
+    path: '',
+    component: ViewerComponent,
+    resolve: {
+      token: TokenResolver
+    }
+  }
 ]
 
 @NgModule({
@@ -29,7 +37,7 @@ const routes: Routes = [
   ],
   providers: [
     FeedService,
-    MessageService
+    TokenResolver
   ]
 })
 export class ViewerModule { }

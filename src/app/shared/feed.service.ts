@@ -11,6 +11,7 @@ import { environment } from '../../environments/environment';
 export class FeedService {
 
   private apiToken: string;
+  private lastSettings: Settings;
 
   private settings: Settings = {
     onlyImage: false,
@@ -32,7 +33,7 @@ export class FeedService {
   }
 
   setSettings(settings: Settings) {
-    const oldNumImages = this.settings.numImages;
+    this.lastSettings = { ... this.settings};
     this.settings = { ...settings };
   }
 
@@ -98,5 +99,9 @@ export class FeedService {
   getData(token: string): Observable<any> {
     this.apiToken = token;
     return forkJoin([this.getUser(), this.getFeed()]);
+  }
+
+  get numImagesUpdated(): boolean {
+    return this.lastSettings?.numImages !== this.settings.numImages;
   }
 }

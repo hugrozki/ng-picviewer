@@ -1,7 +1,10 @@
 # NgPicviewer
 
 
-Nota: Agregar descripcion
+NgPicviewer es una prueba de concepto de un visualizador de imágenes de instagram. Se conecta a una cuenta para acceder a las publicaciones con imágenes y las muestra manera cíclica.
+
+
+## Instrucciones
 
 Se debe crear el archivo env.environment.ts en la siguiente ruta:
 

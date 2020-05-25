@@ -18,6 +18,21 @@ export class AuthService {
 
   readonly auth: Observable<AuthObject> = this._auth.asObservable();
 
+  saveToken(token: string): string {
+    localStorage.setItem('npv_token', token);
+    return token;
+  }
+
+  getToken(): string {
+    const token = localStorage.getItem('npv_token');
+    return token || '';
+  }
+
+  deleteToken(): void {
+    if(localStorage.getItem('npv_token')) {
+      localStorage.removeItem('npv_token');
+    }
+  }
 
   authenticate(auth: AuthObject) {
     this._auth.next(auth);
@@ -25,5 +40,6 @@ export class AuthService {
 
   disconnect() {
     this._auth.next(this.initial);
+    this.deleteToken();
   }
 }

@@ -64,7 +64,7 @@ export class ViewComponent implements OnInit, OnDestroy  {
   settings: Settings;
   feedSubscription: Subscription;
   feed: FeedItem[];
-  interval;
+  interval: any;
 
   step = 100 / this.intervalDuration;
 
@@ -76,15 +76,7 @@ export class ViewComponent implements OnInit, OnDestroy  {
 
   ngOnInit(): void {
     this.settings = this.feedService.getSettings();
-
-    if (this.feed.length === this.settings.numImages) {
-      this.play();
-      return;
-    }
-
-    this.feedService.getFeed().subscribe(response => {
-      this.play();
-    });
+    this.play();
   }
 
   ngOnDestroy(): void {

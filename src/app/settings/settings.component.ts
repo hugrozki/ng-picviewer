@@ -25,9 +25,4 @@ export class SettingsComponent implements OnInit {
   ngOnInit(): void {
     this.settingsFormData = this.service.getSettings();
   }
-
-  get getData() {
-    return JSON.stringify(this.settingsFormData)
-  }
-
 }
