@@ -8,6 +8,7 @@ export const environment = {
   production: false,
   apiUrl: 'https://api.instagram.com/v1/',
   authUrl: 'https://api.instagram.com/oauth/authorize/',
+  redirectUrl: 'http://localhost:4200/success/',
   ...env
 };
 

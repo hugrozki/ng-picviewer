@@ -1,26 +1,48 @@
-# NgPicviewer
+# NgPicviewer. Instagram Feed Test
+
+NgPicviewer is a test application created in Angular 9 to view instagram images. You connect to an account to access publications and display them cyclically.
 
 
-NgPicviewer es una prueba de concepto de un visualizador de imágenes de instagram. Se conecta a una cuenta para acceder a las publicaciones con imágenes y las muestra manera cíclica.
+## Installation for development
+
+#### Create Instagram Client
+
+[Go to Manage Clients](https://www.instagram.com/developer/clients/manage/) on instagram developer site to assign an client_id and client_secret for the application.
 
 
-## Instrucciones
+#### Provide settings values
 
-Se debe crear el archivo env.environment.ts en la siguiente ruta:
-
-```
-src/environments
-```
-
-Y agregar los valores:
+Go to src/environments, inside create the env.enviroment.ts file and type the next:
 
 ```
 export const env = {
-  clientID: INSTAGRAM_CLIENT_ID,
-  redirect: REDIRECT_URI
+  clientID: INSTAGRAM_CLIENT_ID
 }
 ```
 
+Go to environment.ts and environment.prod.ts files and change value of redirectUrl key. REDIRECT_URI is value of the server root, 'http://localhost:4200' for example.
+
+```
+export const environment = {
+  ...
+  apiUrl: 'https://api.instagram.com/v1/',
+  authUrl: 'https://api.instagram.com/oauth/authorize/',
+  redirectUrl: 'REDIRECT_URI/success/'
+};
+```
+
+In the same files import env.enviroment.ts and add the imported values
+
+```
+import { env } from './env.enviroment';
+
+export const environment = {
+  ...
+  redirectUrl: 'REDIRECT_URI/success/'
+  ...env
+};
+
+```
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
 
